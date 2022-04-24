@@ -4,9 +4,10 @@
   "package": "net.jero.jeromod.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "ModEntityDataSaver"
   ],
   "client": [
-    "ExampleMixin"
+    "LivingEntityMixin"
   ],
   "injectors": {
     "defaultRequire": 1
