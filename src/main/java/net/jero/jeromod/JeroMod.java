@@ -9,7 +9,6 @@ public class JeroMod implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-        //test
 		LOGGER.info("Hello Fabric world!");
 	}
 }
