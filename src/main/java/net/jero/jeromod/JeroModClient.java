@@ -15,17 +15,12 @@ public class JeroModClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
-        keyBinding = KeyBindingHelper.registerKeyBinding(new KeyBinding(
-                "key.jeromod.esp", // The translation key of the keybinding's name
-                InputUtil.Type.KEYSYM, // The type of the keybinding, KEYSYM for keyboard, MOUSE for mouse.
-                GLFW.GLFW_KEY_R, // The keycode of the key
-                "category.jeromod.test" // The translation key of the keybinding's category.
-        ));
-
+        keyBinding = KeyBindingHelper.registerKeyBinding(new KeyBinding("key.jeromod.esp", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_R, "category.jeromod.test"));
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
+            //Toggle ESP
             while (keyBinding.wasPressed()) {
                 ESP.toggleESP();
-                client.player.sendMessage(new LiteralText("ESP aktiv: " + ESP.getActivated()), false);
+                client.player.sendMessage(new LiteralText("§aESP aktiv: " + ESP.getActivated()), false);
             }
         });
     }

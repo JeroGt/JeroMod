@@ -16,7 +16,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(LivingEntity.class)
-public abstract class LivingEntityMixin extends Entity{
+public abstract class  LivingEntityMixin extends Entity{
     @Shadow protected abstract void updateGlowing();
 
     public LivingEntityMixin(EntityType<?> type, World world) {
@@ -29,9 +29,7 @@ public abstract class LivingEntityMixin extends Entity{
 
     @Inject(at = @At("TAIL"), method = "updateGlowing")
     private void updateGlow(CallbackInfo info) {
-        System.out.println("kommt an!");
         if(ESP.getActivated()) {
-            System.out.println("geil!");
             this.setFlag(Entity.GLOWING_FLAG_INDEX, true);
         }
     }
